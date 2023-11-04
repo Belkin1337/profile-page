@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "typed.scss";
+
+@font-face {
+  font-family: Monocraft;
+  src: url('../public/font/Monocraft.otf');
+}
+
+@layer base {
+  body {
+    @apply bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-gray-900 via-purple-900 to-violet-600
+  }
+}
+
+.welcoming-ru {
+  @include typed(
+			"Я Руся Белкин.",
+			"Или Belkin.",
+			"Или pureawake.",
+      "Или просто белка.",
+			1.5, (caret-width: 4px, caret-space: 2px)
+		);
+}
+
+.welcoming-en {
+  @include typed(
+			"I'm Rusya Belkin.",
+			"Or Belkin.",
+			"Or pureawake.",
+      "Or just a belka.",
+			1.5, (caret-width: 4px, caret-space: 2px)
+		);
+}
+
+@layer components {
+  .wisteria-badge {
+    @apply bg-[#F7AEF8] border-[1px] border-neutral-600 rounded-md
+  }
+  .outerspace-badge {
+    @apply bg-[#444545] rounded-md border border-[#F7AEF8]
+  }
+}
+
+.pl, .pl:before, .pl:after {
+	animation-duration: 2s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+.pl {
+	margin: 0 auto 1.5em auto;
+	position: relative;
+	width: 4em;
+	height: 4em;
+}
+
+.pl:before, .pl:after {
+	background: white;
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	transform-origin: 50% 100%;	
+	clip-path: polygon(0 0,100% 0,50% 100%);
+	-webkit-clip-path: polygon(0 0,100% 0,50% 100%);
+}
+
+.pl-name {
+	text-align: center;
+}
+
+.pl-kinetic:before {
+	animation-name: kineticA;
+}
+.pl-kinetic:after {
+	animation-name: kineticB;
+}
+
+@keyframes kineticA {
+	from, 25% { 
+    transform: rotate(0deg) 
+  }
+	50%, 75% {
+     transform: rotate(180deg) 
+  }
+	to { 
+    transform: rotate(360deg) 
+  }
+}
+
+@keyframes kineticB {
+	from { 
+    transform: rotate(90deg) 
+  }
+	25%, 50% { 
+    transform: rotate(270deg) 
+  }
+	75%, to { 
+    transform: rotate(450deg) 
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Monocraft !important;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.loader {
+  width: 0;
+  height: 4.8px;
+  display: inline-block;
+  position: relative;
+  background: #00cdb0;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  animation: animFw 8s linear infinite;
+}
+
+  .loader::after,
+  .loader::before {
+    content: '';
+    width: 10px;
+    height: 1px;
+    background: #FFF;
+    position: absolute;
+    top: 9px;
+    right: -2px;
+    opacity: 0;
+    transform: rotate(-45deg) translateX(0px);
+    box-sizing: border-box;
+    animation: coli1 0.3s linear infinite;
+  }
+
+  .loader::before {
+    top: -4px;
+    transform: rotate(45deg);
+    animation: coli2 0.3s linear infinite;
+}
+
+@keyframes animFw {
+    0% {
+  width: 0;
+}
+    100% {
+  width: 100%;
+}
+  }
+
+@keyframes coli1 {
+  0% {
+    transform: rotate(-45deg) translateX(0px);
+    opacity: 0.7;
+  } 100% {
+    transform: rotate(-45deg) translateX(-45px);
+    opacity: 0;
+  }
+}
+
+@keyframes coli2 {
+  0% {
+    transform: rotate(45deg) translateX(0px);
+    opacity: 1;
+  } 100% {
+    transform: rotate(45deg) translateX(-45px);
+    opacity: 0.7;
+  }
+}
+  
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #00cdb0;
+  z-index: 5;
+  transform-origin: 0%;
+}
