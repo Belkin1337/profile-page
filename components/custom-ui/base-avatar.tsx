@@ -82,13 +82,30 @@ const BaseAvatar = () => {
     { title: otherT('Kyddiekafka - I recommend'), image: pic4, },
   ];
 
-
   return (
-    <div className={`flex items-center justify-center w-[340px] relative h-[340px] -right-2 md:right-0 md:w-[492px] md:h-[492px] overflow-hidden mx-2 ease-in bg-cover p-2 xl:p-4 z-15`}
-      style={{ backgroundImage: `url(${glassblock.src})` }}>
-      <div ref={sliderRef} className="keen-slider overflow-hidden w-[310px] h-[320px] md:h-[466px] md:w-[466px]">
+    <div className={`flex items-center justify-center relative overflow-hidden bg-cover p-2 xl:p-4 z-15
+      w-[280px] h-[280px] 
+      sm:w-[300px] sm:h-[300px] 
+      md:right-0 md:w-[492px] md:h-[492px]
+    `}
+      style={{
+        backgroundImage: `url(${glassblock.src})`
+      }}>
+      <div
+        ref={sliderRef}
+        className="keen-slider overflow-hidden 
+          w-[280px] h-[260px] 
+          sm:w-[300px] sm:h-[280px] 
+          md:h-[466px] md:w-[466px]
+        ">
         {avatarList.map((item, itemIndex) => (
-          <Avatar key={itemIndex} src={item.image} alt={item.title} title={item.title} className={`keen-slider__slide number-slide${itemIndex + 1}`} />
+          <Avatar
+            key={itemIndex}
+            src={item.image}
+            alt={item.title}
+            title={item.title}
+            className={`keen-slider__slide number-slide${itemIndex + 1}`}
+          />
         ))}
       </div>
     </div>
