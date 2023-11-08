@@ -1,8 +1,8 @@
-import Contacts from '@/components/Contacts';
-import ProjectsSection from '@/components/Projects';
-import About from '@/components/About';
-import Skills from '@/components/Skills';
-import Interests from '@/components/Interests';
+import Contacts from '@/components/contacts';
+import ProjectsSection from '@/components/projects';
+import About from '@/components/about';
+import Skills from '@/components/skills';
+import Interests from '@/components/interests';
 import Header from '@/components/custom-ui/header';
 import ProgressBar from '@/components/custom-ui/progress-bar';
 
