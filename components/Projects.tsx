@@ -13,7 +13,7 @@ import fasberrypreview from "@/public/images/fasberrypreview.png"
 import spotifyclone from "@/public/images/almost-spotify.png"
 import Card from "./custom-ui/card"
 
-const ProjectsSection = () => {
+const Projects = () => {
   const servicalT = useScopedI18n("servical");
   const titleT = useScopedI18n('title');
   const projectsT = useScopedI18n('projects');
@@ -96,4 +96,4 @@ const ProjectsSection = () => {
   )
 }
 
-export default ProjectsSection;
+export default Projects;

@@ -21,7 +21,7 @@ import { useScopedI18n } from "@/lib/next-international";
 import Card from "./custom-ui/card";
 import { usefulLinks } from "@/share/Useful-Links";
 
-const Contacts = [
+const contactsList = [
   { name: "Telegram", icon: BsTelegram, link: "https://t.me/jolycock", },
   { name: "Github", icon: BsGithub, link: "https://github.com/Belkin1337", },
   { name: "Spotify", icon: BsSpotify, link: "https://open.spotify.com/user/31veybhgwnxxou5l2shlctvaeknm", },
@@ -30,7 +30,7 @@ const Contacts = [
   { name: "Twitter", icon: BsTwitter, link: "https://twitter.com/jolycock", },
 ]
 
-const contacts = () => {
+const Contacts = () => {
   const titleT = useScopedI18n('title')
   const servicalT = useScopedI18n('servical')
 
@@ -164,7 +164,7 @@ const contacts = () => {
             ))}
           </div>
           <div className="flex flex-wrap flex-row gap-2 lg:gap-4 self-end">
-            {Contacts.map((contact, contactIndex) => (
+            {contactsList.map((contact, contactIndex) => (
               <Link
                 href={contact.link}
                 id={`contact-${contactIndex}`}
@@ -181,4 +181,4 @@ const contacts = () => {
   )
 }
 
-export default contacts;
+export default Contacts;

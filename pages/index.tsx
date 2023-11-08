@@ -1,5 +1,5 @@
 import Contacts from '@/components/contacts';
-import ProjectsSection from '@/components/projects';
+import Projects from '@/components/projects';
 import About from '@/components/about';
 import Skills from '@/components/skills';
 import Interests from '@/components/interests';
@@ -14,7 +14,7 @@ export default function Home() {
       <About />
       <Skills />
       <Interests />
-      <ProjectsSection />
+      <Projects />
       <Contacts />
     </>
   )
