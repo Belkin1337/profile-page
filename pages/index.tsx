@@ -1,4 +1,4 @@
-import ContactsSection from '@/components/Contacts';
+import Contacts from '@/components/Contacts';
 import ProjectsSection from '@/components/Projects';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
@@ -15,7 +15,7 @@ export default function Home() {
       <Skills />
       <Interests />
       <ProjectsSection />
-      <ContactsSection />
+      <Contacts />
     </>
   )
 }

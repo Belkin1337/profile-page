@@ -2,9 +2,10 @@ import '@/styles/globals.scss'
 
 import { I18nProvider } from '@/lib/next-international'
 import { AppProps } from 'next/app'
+import Head from 'next/head';
 
 import localFont from "next/font/local";
-import Head from 'next/head';
+
 const font = localFont({ src: "../public/font/Monocraft.otf" });
 
 export default function App({ Component, pageProps }: AppProps) {

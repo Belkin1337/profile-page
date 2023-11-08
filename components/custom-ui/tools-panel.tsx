@@ -16,10 +16,10 @@ import { Languages, SunMoon } from "lucide-react";
 
 import { VscSettings } from "react-icons/vsc"
 import { useScopedI18n } from '@/lib/next-international'
-import Card from "./custom-ui/card";
-import { BlockCard } from "./ui/blockCard";
-import ChangeLang from "./tools/change-lang";
-import ChangeTheme from "./tools/change-theme";
+import Card from "./card";
+import { BlockCard } from "../ui/blockCard";
+import ChangeLang from "../tools/change-lang";
+import ChangeTheme from "../tools/change-theme";
 
 interface ToolsPanelProps {
   isDesktop?: boolean,

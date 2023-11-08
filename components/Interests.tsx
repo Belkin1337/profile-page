@@ -9,7 +9,7 @@ import ytimage2 from "@/public/images/channels4_profileA.jpg"
 import { useScopedI18n } from "@/lib/next-international"
 import Card from "./custom-ui/card"
 
-const Interests = () => {
+const interests = () => {
   const titleT = useScopedI18n('title')
   const interestsT = useScopedI18n('interests')
   // TODO: google api and tg api
@@ -88,4 +88,4 @@ const Interests = () => {
   );
 }
 
-export default Interests;
+export default interests;

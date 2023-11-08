@@ -6,7 +6,7 @@ import "keen-slider/keen-slider.min.css"
 
 import { BlockCard } from "./ui/blockCard";
 
-import ToolsPanel from "./ToolsPanel";
+import ToolsPanel from "./custom-ui/tools-panel";
 import BaseAvatar from "./custom-ui/base-avatar";
 import Card from "./custom-ui/card";
 
@@ -79,7 +79,7 @@ const About = () => {
   return (
     <section className="flex flex-col justify-center items-center min-h-screen py-4 sm:py-8 md:py-8 lg:py-8">
       <div className="flex flex-col w-[90%] justify-between gap-y-8">
-        <div className="flex flex-col lg:flex-row lg:px-4 py-8 bg-gradient-to-l from-gray-900 to-gray-600 rounded-lg gap-y-4 items-center overflow-hidden w-full ">
+        <div className="flex flex-col lg:flex-row lg:px-4 py-8 bg-gradient-to-l from-gray-900 to-gray-600 rounded-lg gap-4 items-center overflow-hidden w-full ">
           <BaseAvatar/>
           <Card size="sm" className="hidden xl:flex absolute right-0 top-[96px] p-1 bg-neutral-800">
             <ToolsPanel isDesktop />

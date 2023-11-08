@@ -30,7 +30,7 @@ const Contacts = [
   { name: "Twitter", icon: BsTwitter, link: "https://twitter.com/jolycock", },
 ]
 
-const ContactsSection = () => {
+const contacts = () => {
   const titleT = useScopedI18n('title')
   const servicalT = useScopedI18n('servical')
 
@@ -181,4 +181,4 @@ const ContactsSection = () => {
   )
 }
 
-export default ContactsSection;
+export default contacts;

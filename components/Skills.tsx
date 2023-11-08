@@ -3,7 +3,7 @@ import { AiFillSetting } from "react-icons/ai"
 import { VscTools } from "react-icons/vsc"
 import { DatabaseBackup, LibrarySquare } from "lucide-react"
 
-import TiltCard from './TiltCard'
+import TiltCard from './custom-ui/tilt-card'
 import Wrapper from "./ui/wrapper"
 import Title from "./ui/title"
 import { useScopedI18n } from "@/lib/next-international"

@@ -1,4 +1,4 @@
-import ToolsPanel from "../ToolsPanel";
+import ToolsPanel from "./tools-panel";
 import Card from "./card";
 
 const Header = () => {
