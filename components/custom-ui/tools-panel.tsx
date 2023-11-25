@@ -54,7 +54,7 @@ const ToolsPanel: React.FC<ToolsPanelProps> = ({ isDesktop, isMobile }) => {
             <VscSettings className={`${isDesktop && 'h-[50px] w-[50px]'} ${isMobile && 'h-[24px] w-[24px]'} hover:fill-[#059b84] transition`} color="white" />
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <Card size="md" variant="salem" className={`flex flex-col gap-2 p-4 ${isDesktop && 'absolute right-8 -top-10'} w-[256px] z-10000`}>
+            <Card padding="md" variant="salem" className={`flex flex-col gap-2 p-4 ${isDesktop && 'absolute right-8 -top-10'} w-[256px] z-10000`}>
               <DropdownMenuLabel>
                 <span className="text-white text-lg">{servicalT('settings')}</span>
               </DropdownMenuLabel>
@@ -71,7 +71,7 @@ const ToolsPanel: React.FC<ToolsPanelProps> = ({ isDesktop, isMobile }) => {
                       </BlockCard>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="outline-none ring-0">
-                      <Card size="md" variant="salem" className={`flex flex-col gap-2 p-4 ${isDesktop && 'absolute right-32 -top-10'} w-[256px]`}>
+                      <Card padding="md" variant="salem" className={`flex flex-col gap-2 p-4 ${isDesktop && 'absolute right-32 -top-10'} w-[256px]`}>
                         <item.component />
                       </Card>
                     </DropdownMenuContent>
@@ -81,14 +81,17 @@ const ToolsPanel: React.FC<ToolsPanelProps> = ({ isDesktop, isMobile }) => {
             </Card>
           </DropdownMenuContent>
         </DropdownMenu>) : null}
-
       {isMobile ? (
         <Dialog>
           <DialogTrigger>
-            <VscSettings className={`${isDesktop && 'h-[50px] w-[50px]'} ${isMobile && 'h-[24px] w-[24px]'} hover:fill-[#059b84] transition`} color="white" />
+            <VscSettings className={`
+                ${isDesktop && 'h-[50px] w-[50px]'} 
+                ${isMobile && 'h-[22px] w-[22px]'} hover:fill-[#059b84] transition`}
+              color="white"
+            />
           </DialogTrigger>
           <DialogContent className="bg-transparent border-none outline-none flex items-center justify-center">
-            <Card size="md" variant="salem" className={`flex flex-col gap-2 w-full`}>
+            <Card padding="md" variant="salem" className={`flex flex-col gap-2 w-full`}>
               <span className="text-white text-lg">{servicalT('settings')}</span>
               <div className="flex flex-col gap-y-2">
                 {toolsList.map((item) => (
@@ -102,7 +105,7 @@ const ToolsPanel: React.FC<ToolsPanelProps> = ({ isDesktop, isMobile }) => {
                       </BlockCard>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="outline-none ring-0">
-                      <Card size="md" variant="salem" className={`flex flex-col gap-2 p-4 w-[256px]`}>
+                      <Card padding="md" variant="salem" className={`flex flex-col gap-2 p-4 w-[256px]`}>
                         <item.component />
                       </Card>
                     </DropdownMenuContent>
@@ -112,7 +115,6 @@ const ToolsPanel: React.FC<ToolsPanelProps> = ({ isDesktop, isMobile }) => {
             </Card>
           </DialogContent>
         </Dialog>) : null}
-
     </>
   );
 }

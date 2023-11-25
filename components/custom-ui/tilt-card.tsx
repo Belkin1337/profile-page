@@ -2,14 +2,14 @@ import { VariantProps, cva } from 'class-variance-authority';
 import Tilt from 'react-parallax-tilt';
 
 export const tiltVariants = cva(
-  "flex flex-col card-block justify-center xl:justify-start px-6 py-12 lg:px-12 lg:py-24 gap-y-4 w-full shadow-card",
+  "flex flex-col card-block justify-start xl:justify-start px-6 py-12 lg:px-12 lg:py-24 gap-y-4 w-full shadow-card",
   {
     variants: {
       variant: {
         default: "bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-950 via-gray-950 to-black"
       },
       size: {
-        default: "h-[440px] xl:h-[540px] xl:w-[540px]"
+        default: "h-[370px] lg:h-[540px]"
       },
       shadow: {
         default: "shadow-sea"

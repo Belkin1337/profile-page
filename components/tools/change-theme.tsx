@@ -1,22 +1,14 @@
 import { useScopedI18n } from "@/lib/next-international";
 import { BlockCard } from "../ui/blockCard";
+import { useTheme } from "next-themes";
 
 const ChangeTheme = () => {
+  const { setTheme } = useTheme()
   const servicalT = useScopedI18n('servical')
 
   const themeList = [
-    {
-      name: servicalT('dark'),
-      onClick: () => { }
-    },
-    {
-      name: servicalT('light'),
-      onClick: () => { }
-    },
-    {
-      name: servicalT('mycolor'),
-      onClick: () => { }
-    }
+    { name: servicalT('dark'), onClick: () => setTheme("dark") },
+    { name: servicalT('light'), onClick: () => setTheme("light") },
   ]
 
   return (
@@ -25,11 +17,11 @@ const ChangeTheme = () => {
         <BlockCard
           key={item.name}
           variant="pink"
-          className="flex bg-neutral-800 hover:bg-neutral-700 rounded-md p-2 gap-x-2 cursor-pointer w-full"
+          className="flex rounded-md p-2 gap-x-2 cursor-pointer w-full"
           onClick={item.onClick}
         >
           <button className="text-neutral-200 text-xl">
-            {item.name}
+           {item.name}
           </button>
         </BlockCard>
       ))

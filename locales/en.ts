@@ -1,7 +1,7 @@
 export default {
   'locales': {
     'english': 'English',
-    'russian': 'Russian',
+    'russian': 'Русский',
   },
   'general': {
     'Q': 'Q!',
@@ -108,9 +108,9 @@ export default {
       "title": "My Minecraft Project Website",
       "description": "My very first project. Contains basic information about the Fasberry project."
     },
-    "fasberryServer": {
-      "title": "Minecraft Project",
-      "description": "A network of servers with a vibrant atmosphere. SMP, boosts, storyline, and social activity among players. Currently in development."
+    'profilepage': {
+      'title': "Profile-Page",
+      'description': "Personal page with all the information about Rus Belkin, in fact, where you are now."
     }
   }
 } as const

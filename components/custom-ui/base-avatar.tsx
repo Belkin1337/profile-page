@@ -83,8 +83,8 @@ const BaseAvatar = () => {
   ];
 
   return (
-    <div className={`flex items-center justify-center relative overflow-hidden bg-cover p-2 lg:mr-4 xl:p-4 z-15
-      w-[280px] h-[280px] 
+    <div className={`flex items-center justify-center relative overflow-hidden bg-cover p-2 lg:mr-2 mb-4 lg:mb-0 xl:p-4 z-15
+      w-[294px] h-[286px]
       sm:w-[300px] sm:h-[300px] 
       md:right-0 md:w-[492px] md:h-[492px]
     `}

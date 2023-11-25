@@ -1,6 +1,6 @@
 export default {
   'locales': {
-    'english': 'Английский',
+    'english': 'English',
     'russian': 'Русский',
   },
   'general': {
@@ -108,9 +108,10 @@ export default {
       'title': "Сайт моего проекта по майнкрафту",
       'description': "Самый первый мой проект. Содержит основную информацию о проектe Fasberry",
     },
-    'fasberryServer': {
-      'title': "Майнкрафт-проект",
-      'description': "Сеть серверов с вайбовой атмосферкой. SMP, бусты, сюжет & social activity среди игроков. Сейчас в разработке."
+    'profilepage': {
+      'title': "Страница-профиль",
+      'description': "Личная страница со всей информацией о Русе Белкине, собственно где вы сейчас и находитесь."
     }
+    
   }
 } as const

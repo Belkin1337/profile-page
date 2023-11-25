@@ -1,18 +1,17 @@
-import TooltipLink from "./custom-ui/tooltip-link"
-import Title from "./ui/title"
-import Wrapper from "./ui/wrapper"
+import TooltipLink from "@/components/custom-ui/tooltip-link"
+import Title from "@/components/ui/title"
+import { Wrapper } from "@/components/ui/wrapper"
 
 import tgImage1 from "@/public/images/photo_2023-10-04_21-36-23.jpg"
 import tgImage2 from "@/public/images/ficon.png"
 import ytimage1 from "@/public/images/channels4_profile.jpg"
 import ytimage2 from "@/public/images/channels4_profileA.jpg"
 import { useScopedI18n } from "@/lib/next-international"
-import Card from "./custom-ui/card"
+import Card from "@/components/custom-ui/card"
 
 const Interests = () => {
   const titleT = useScopedI18n('title')
   const interestsT = useScopedI18n('interests')
-  // TODO: google api and tg api
 
   const channelData = [
     {
@@ -52,10 +51,13 @@ const Interests = () => {
   return (
     <Wrapper>
       <Title titleBody={titleT('interests.title')} subtitleBody={titleT('interests.subtitle')} />
-      <div className="flex md:flex-row flex-wrap flex-col w-full gap-6 justify-start">
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 auto-rows-auto w-full gap-4">
         {channelData.map((item) => (
           <TooltipLink key={item.name} href={item.href}>
-            <Card key={item.name} className="gap-y-6 justify-start items-start flex-col">
+            <Card
+              key={item.name}
+              className="gap-y-6 gap-x-4 justify-start items-start flex-col sm:flex-row lg:flex-col"
+            >
               <div className="overflow-hidden">
                 <img src={item.image} alt={item.name}
                   className="
@@ -66,7 +68,7 @@ const Interests = () => {
                   "
                 />
               </div>
-              <div className="flex flex-col text-neutral-200">
+              <div className="flex flex-col text-neutral-700 dark:text-neutral-200">
                 <p className="text-xl text-neutral-200">
                   {interestsT('network')}: {item.parent}
                 </p>

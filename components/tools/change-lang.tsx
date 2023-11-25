@@ -6,14 +6,8 @@ const ChangeLang = () => {
   const localesT = useScopedI18n('locales');
 
   const langList = [
-    {
-      name: localesT('english'),
-      onClick: () => changeLocale('en')
-    },
-    {
-      name: localesT('russian'),
-      onClick: () => changeLocale('ru')
-    }
+    { name: localesT('english'), onClick: () => changeLocale('en') },
+    { name: localesT('russian'), onClick: () => changeLocale('ru') }
   ]
 
   return (

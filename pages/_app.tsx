@@ -5,6 +5,8 @@ import { AppProps } from 'next/app'
 import Head from 'next/head';
 
 import localFont from "next/font/local";
+import Script from 'next/script';
+import { ThemeProvider } from '@/providers/theme-provider';
 
 const font = localFont({ src: "../public/font/Monocraft.otf" });
 
@@ -24,9 +26,16 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:url" content="https://pureawake.ru/" />
       </Head>
       <I18nProvider locale={pageProps.locale}>
-        <main className={font.className}>
-          <Component {...pageProps} />
-        </main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className={font.className}>
+            <Component {...pageProps} />
+          </main>
+        </ThemeProvider>
       </I18nProvider>
     </>
   )

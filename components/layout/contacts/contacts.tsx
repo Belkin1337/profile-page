@@ -1,8 +1,6 @@
-// import { useEffect, useState } from "react";
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-// import io from "socket.io-client";
 import Link from "next/link";
 
 import { Input } from "@/components/ui/input"
@@ -15,10 +13,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "
 import { Instagram } from 'lucide-react';
 import { BsSpotify, BsTelegram, BsGithub, BsPinterest, BsTwitter } from "react-icons/bs"
 
-import Title from "./ui/title";
-import Wrapper from "./ui/wrapper";
+import Title from "@/components/ui/title";
+import { Wrapper } from "@/components/ui/wrapper";
 import { useScopedI18n } from "@/lib/next-international";
-import Card from "./custom-ui/card";
+import Card from "@/components/custom-ui/card";
 import { usefulLinks } from "@/share/Useful-Links";
 
 const contactsList = [
@@ -48,42 +46,6 @@ const Contacts = () => {
     resolver: zodResolver(FormSchema),
   });
 
-  // useEffect(() => {
-  //   const socket = io("http://localhost:3005");
-  //   socket.on("connect", () => {
-  //     console.log("Connected to server");
-  //   });
-
-  //   socket.on("error", (errorMessage) => {
-  //     console.error(errorMessage);
-  //   });
-
-  //   return () => {
-  //     socket.disconnect();
-  //   };
-  // }, []);
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    try {
-      // event.preventDefault();
-      // const formData = new FormData(event.currentTarget);
-      // const socket = io("http://localhost:3005");
-
-      // const data: { [key: string]: string } = {};
-      // for (let [key, value] of formData.entries()) {
-      //   data[key] = value as string;
-      // }
-
-      // socket.emit("formData", data);
-      // toast({
-      //   title: "Сообщение отправлено.",
-      //   duration: 1600
-      // });
-    } catch (e) {
-      console.log(e)
-    }
-  };
-
   const inputList = [
     { name: "name", placeholder: servicalT('form.input.placeholder.name') },
     { name: "topic", placeholder: servicalT('form.input.placeholder.topic') },
@@ -91,15 +53,15 @@ const Contacts = () => {
   ]
 
   return (
-    <Wrapper center>
+    <Wrapper>
       <Title titleBody={titleT('contacts.title')} subtitleBody={titleT('contacts.subtitle')} />
       <div className="flex flex-col lg:flex-row justify-between gap-x-12 gap-y-6 w-full">
-        <Card variant="pink" size="lg" className="flex flex-col w-full lg:w-4/6 py-6 px-4 justify-start gap-y-6">
+        <Card variant="pink" padding="lg" className="flex flex-col w-full lg:w-4/6 py-6 px-4 justify-start gap-y-6">
           <h1 className="text-neutral-200 text-[1rem] md:text-[1.6rem]">
             {titleT('contacts.formTitle')}
           </h1>
           <Form {...form}>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form className="space-y-6">
               <FormField control={form.control} name="message" render={({ field }) => (
                 <FormItem>
                   <FormControl>
@@ -109,8 +71,12 @@ const Contacts = () => {
                           <SelectValue className="text-[1.4rem] text-sea" placeholder={servicalT('form.select.title')} />
                         </SelectTrigger>
                         <SelectContent className="bg-basicBackground">
-                          <SelectItem value="telegram" className="cursor-pointer focus:text-sea text-[1rem] text-neutral-200">Telegram</SelectItem>
-                          <SelectItem value="vk" className="cursor-pointer focus:text-sea text-[1rem] text-neutral-200">VK</SelectItem>
+                          <SelectItem value="telegram" className="cursor-pointer focus:text-sea text-[1rem] text-neutral-200">
+                            Telegram
+                          </SelectItem>
+                          <SelectItem value="vk" className="cursor-pointer focus:text-sea text-[1rem] text-neutral-200">
+                            VK
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                       {inputList.map((item) => (

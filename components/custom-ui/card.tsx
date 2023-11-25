@@ -10,16 +10,18 @@ export const cardVariants = cva(
         'soft-metal': "bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-indigo-200 via-slate-600 to-indigo-200",
         salem: "bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-gray-900 via-purple-900 to-violet-600",
       },
-      size: {
+      padding: {
         default: "lg:p-12 p-4",
         lg: "p-8",
         md: "p-4",
-        sm: "p-2"
+        sm: "p-2",
+        sm_sm: "p-1",
+        none: "p-0"
       }
     },
     defaultVariants: {
       variant: "default",
-      size: "default"
+      padding: "default"
     }
   }
 )
@@ -33,9 +35,9 @@ export interface CardVariantProps
   VariantProps<typeof cardVariants>,
   CardProps { children: React.ReactNode }
 
-const Card: React.FC<CardVariantProps> = ({ className, variant, size, children, ...props }) => {
+const Card: React.FC<CardVariantProps> = ({ className, variant, padding, children, ...props }) => {
   return (
-    <div className={cardVariants({ variant, size, className })}>
+    <div className={cardVariants({ variant, padding, className })}>
       {children}
     </div>
   )
