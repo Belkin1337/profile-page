@@ -53,9 +53,6 @@ const ChangeTheme = () => {
                       setOpen(false)
                     }}
                   >
-                    <Check className={cn("mr-2 h-4 w-4",
-                      value === theme.value ? "opacity-100" : "opacity-0")}
-                    />
                     {theme.label}
                   </CommandItem>
                 </div>
