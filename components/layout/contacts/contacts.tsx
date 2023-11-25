@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormMessage, } from "@/components/ui/form"
 import { Textarea } from "@/components/ui/textarea"
-import { toast } from "@/components/ui/use-toast"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select"
 
 import { Instagram } from 'lucide-react';
@@ -16,8 +15,8 @@ import { BsSpotify, BsTelegram, BsGithub, BsPinterest, BsTwitter } from "react-i
 import Title from "@/components/ui/title";
 import { Wrapper } from "@/components/ui/wrapper";
 import { useScopedI18n } from "@/lib/next-international";
-import Card from "@/components/custom-ui/card";
-import { usefulLinks } from "@/share/Useful-Links";
+import Card from "@/components/ui/card";
+import { usefulLinks } from "@/share/lists/us-links";
 
 const contactsList = [
   { name: "Telegram", icon: BsTelegram, link: "https://t.me/jolycock", },
@@ -104,10 +103,10 @@ const Contacts = () => {
               )}
               />
               <Button
-                onClick={() => toast({
-                  className: "text-white font-normal text-xl",
-                  title: "Пока нельзя написать мне.", duration: 1400
-                })}
+                // onClick={() => toast({
+                //   className: "text-white font-normal text-xl",
+                //   title: "Пока нельзя написать мне.", duration: 1400
+                // })}
                 size="xl" className="border border-transparent hover:border-sea p-2 hover:bg-outline-none w-full focus:outline-none text-[1.4rem] text-[#F7AEF8]">
                 {servicalT('form.button.title')}
               </Button>

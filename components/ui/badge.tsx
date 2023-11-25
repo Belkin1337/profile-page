@@ -33,4 +33,8 @@ export const Badge: React.FC<BadgeProps> = ({
   variant,
   size,
   ...props
-}) => <button className={badgeVariants({ variant, size, className })} {...props} />;
+}) => <button className={badgeVariants({ 
+  variant, 
+  size, 
+  className }
+)} {...props} />;

@@ -1,5 +1,5 @@
 - [X] add internationalization 
-- [ ] add dark, light themes
+- [X] add dark, light themes
 - [ ] add some easter eggs
 - [ ] add the function of sending messages through the form
 

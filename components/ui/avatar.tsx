@@ -17,7 +17,7 @@ const avatarVariants = cva(
 )
 
 export interface AvatarPropsData {
-  src: StaticImageData,
+  src: string,
   alt: string
 }
 
@@ -34,7 +34,7 @@ export const Avatar: React.FC<AvatarProps> = ({
   ...props
 }) => <img
     alt={alt}
-    src={src.src}
+    src={src}
     className={avatarVariants({ variant, className })}
     {...props}
   />;

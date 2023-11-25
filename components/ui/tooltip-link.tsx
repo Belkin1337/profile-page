@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { useScopedI18n } from "@/lib/next-international";
 
 import {
   Tooltip,
@@ -6,14 +7,16 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { useScopedI18n } from "@/lib/next-international";
 
 interface TooltipLinkProps {
   href: string,
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const TooltipLink: React.FC<TooltipLinkProps> = ({href, children}) => {
+const TooltipLink: React.FC<TooltipLinkProps> = ({
+  href,
+  children
+}) => {
   const servicalT = useScopedI18n('servical');
 
   return (
@@ -23,7 +26,10 @@ const TooltipLink: React.FC<TooltipLinkProps> = ({href, children}) => {
           {children}
         </TooltipTrigger>
         <TooltipContent className="bg-neutral-900 px-4 border-neutral-600">
-          <Link className="text-lg text-pink hover:underline hover:underline-offset-1" href={href}>
+          <Link
+            className="text-lg text-pink hover:underline hover:underline-offset-1"
+            href={href}
+          >
             {servicalT('tooltip-link')}
           </Link>
         </TooltipContent>

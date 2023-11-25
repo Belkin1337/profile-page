@@ -5,7 +5,6 @@ import { AppProps } from 'next/app'
 import Head from 'next/head';
 
 import localFont from "next/font/local";
-import Script from 'next/script';
 import { ThemeProvider } from '@/providers/theme-provider';
 
 const font = localFont({ src: "../public/font/Monocraft.otf" });

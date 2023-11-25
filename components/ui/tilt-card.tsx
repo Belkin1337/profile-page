@@ -2,7 +2,7 @@ import { VariantProps, cva } from 'class-variance-authority';
 import Tilt from 'react-parallax-tilt';
 
 export const tiltVariants = cva(
-  "flex flex-col card-block justify-start xl:justify-start px-6 py-12 lg:px-12 lg:py-24 gap-y-4 w-full shadow-card",
+  "flex flex-col card-block justify-start xl:justify-start px-6 py-12 lg:px-12 lg:py-24 gap-y-4 w-full shadow-CARD",
   {
     variants: {
       variant: {
@@ -12,7 +12,7 @@ export const tiltVariants = cva(
         default: "h-[370px] lg:h-[540px]"
       },
       shadow: {
-        default: "shadow-sea"
+        default: "shadow-MAIN_SEAWAVE"
       }
     },
     defaultVariants: {
@@ -32,7 +32,13 @@ export interface TiltCardVariantsProps
   VariantProps<typeof tiltVariants>,
   TiltCardProps { children: React.ReactNode }
 
-const TiltCard: React.FC<TiltCardVariantsProps> = ({ className, variant, size, shadow, children }) => {
+const TiltCard: React.FC<TiltCardVariantsProps> = ({ 
+  className, 
+  variant, 
+  size, 
+  shadow, 
+  children 
+}) => {
   return (
     <Tilt
       tiltAngleXInitial={2}
@@ -40,7 +46,12 @@ const TiltCard: React.FC<TiltCardVariantsProps> = ({ className, variant, size, s
       tiltAxis="x"
       gyroscope
       transitionEasing="cubic-bezier(.03,.98,.52,.99)"
-      className={tiltVariants({ variant, size, shadow, className })}
+      className={tiltVariants({ 
+        variant, 
+        size, 
+        shadow, 
+        className }
+      )}
     >
       {children}
     </Tilt >

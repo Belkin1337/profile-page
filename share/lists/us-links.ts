@@ -6,8 +6,9 @@ const usefulLinks = [
   "https://realfavicongenerator.net/",
   "https://pixcap.com/explore/packs",
   "https://windirstat.net/",
-
+  "https://www.meimu.design/vector-to-3d/",
+  "https://codellama.dev/",
+  "https://supertools.therundown.ai",
 ]
-
 
 export { usefulLinks }

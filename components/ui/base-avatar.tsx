@@ -1,13 +1,9 @@
 import { useScopedI18n } from "@/lib/next-international";
 import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react"
 
-import pic1 from '@/public/images/avatar4.jpg';
-import pic2 from "@/public/images/avatar1.jpg"
-import pic3 from "@/public/images/avatar2.jpg"
-import pic4 from "@/public/images/avatar3.jpg"
-import pic5 from "@/public/images/avatar5.jpg"
-import glassblock from "@/public/images/glass.webp"
-import { Avatar } from "../ui/avatar";
+import glassblock from "@/public/images/main/glass.webp"
+
+import { Avatar } from "@/components/ui/avatar";
 
 const WheelControls: KeenSliderPlugin = (slider) => {
   let touchTimeout: ReturnType<typeof setTimeout>
@@ -73,20 +69,20 @@ const BaseAvatar = () => {
   const [sliderRef] = useKeenSlider<HTMLDivElement>(
     { loop: true, rubberband: false, vertical: true, }, [WheelControls])
 
-
   const avatarList = [
-    { title: otherT('I'), image: pic5, },
-    { title: "73 6b 61 6c 65 6d 69", image: pic2, },
-    { title: otherT('Koshka'), image: pic3, },
-    { title: otherT('Not I'), image: pic1, },
-    { title: otherT('Kyddiekafka - I recommend'), image: pic4, },
+    { title: otherT('I'), image: "/images/avatars/avatar5.jpg", },
+    { title: "73 6b 61 6c 65 6d 69", image: "/images/avatars/avatar1.jpg", },
+    { title: otherT('Koshka'), image: "/images/avatars/avatar2.jpg", },
+    { title: otherT('Not I'), image: "/images/avatars/avatar4.jpg", },
+    { title: otherT('Kyddiekafka - I recommend'), image: "/images/avatars/avatar3.jpg", },
   ];
 
   return (
-    <div className={`flex items-center justify-center relative overflow-hidden bg-cover p-2 lg:mr-2 mb-4 lg:mb-0 xl:p-4 z-15
+    <div className={`flex items-center justify-center relative overflow-hidden 
+    bg-cover p-2 lg:mr-2 mb-4 lg:mb-0 xl:p-4 z-15
       w-[294px] h-[286px]
-      sm:w-[300px] sm:h-[300px] 
-      md:right-0 md:w-[492px] md:h-[492px]
+      sm:w-[300px] sm:h-[300px]
+      xl:w-[364px] xl:h-[364px]
     `}
       style={{
         backgroundImage: `url(${glassblock.src})`
@@ -96,7 +92,7 @@ const BaseAvatar = () => {
         className="keen-slider overflow-hidden 
           w-[280px] h-[260px] 
           sm:w-[300px] sm:h-[280px] 
-          md:h-[466px] md:w-[466px]
+          xl:w-[334px] xl:h-[334px]
         ">
         {avatarList.map((item, itemIndex) => (
           <Avatar

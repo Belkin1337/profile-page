@@ -1,13 +1,13 @@
-import TooltipLink from "@/components/custom-ui/tooltip-link"
+import TooltipLink from "@/components/ui/tooltip-link"
 import Title from "@/components/ui/title"
 import { Wrapper } from "@/components/ui/wrapper"
 
-import tgImage1 from "@/public/images/photo_2023-10-04_21-36-23.jpg"
-import tgImage2 from "@/public/images/ficon.png"
-import ytimage1 from "@/public/images/channels4_profile.jpg"
-import ytimage2 from "@/public/images/channels4_profileA.jpg"
+import tgImage1 from "@/public/images/interests/tg1.jpg"
+import tgImage2 from "@/public/images/interests/ficon.png"
+import ytimage1 from "@/public/images/interests/channels4_profile.jpg"
+import ytimage2 from "@/public/images/interests/channels4_profileA.jpg"
 import { useScopedI18n } from "@/lib/next-international"
-import Card from "@/components/custom-ui/card"
+import Card from "@/components/ui/card"
 
 const Interests = () => {
   const titleT = useScopedI18n('title')
