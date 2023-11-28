@@ -6,11 +6,11 @@ import Interests from '@/components/layout/interests/interests';
 
 export default function Home() {
   return (
-    <>
+    <body className="theme bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))]">
       <About />
       <Skills />
       <Interests />
       <Projects />
-    </>
+    </body>
   )
 }

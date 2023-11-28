@@ -5,7 +5,7 @@ export const cardVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gradient-to-l from-gray-700 to-gray-700 rounded-lg",
+        default: "bg-gradient-to-l from-gray-700 to-gray-700",
         pink: "bg-gradient-to-tl from-pink-400 to-pink-600",
         'soft-metal': "bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-indigo-200 via-slate-600 to-indigo-200",
         salem: "bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-gray-900 via-purple-900 to-violet-600",

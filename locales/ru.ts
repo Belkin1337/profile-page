@@ -73,13 +73,11 @@ export default {
     'usefulLinks': 'Полезные ссылки'
   },
   'whois': {
-    'genius': "Гений",
-    'sage': "мудрец",
+    'rust enjoyer': "любитель раста",
     'minecraft player': "игрок в майнкрафт",
     'minecraft server developer': "разработчик сервера в майнкрафте",
     'owner of a youTube channel': "обладатель канала на ютубе",
-    'almost a streamer': "почти стример",
-    'kind': "добрый",
+    'frontend dev': "Фронтенд дев",
     'polite': "вежливый",
     'rofler': "рофловый",
     'something else...': "что-то ещё..."

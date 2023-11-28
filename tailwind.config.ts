@@ -22,6 +22,10 @@ module.exports = {
         CARD: "0px 0px 40px -15px #211e35",
         BADGE: "inset 64px 0px 0px 0px #00cdb0"
       },
+      gradient: {
+        DARK: "from-gray-950 via-purple-900 to-violet-600",
+        LIGHT: "from-gray-200 via-purple-900 to-violet-600"
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],

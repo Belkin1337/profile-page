@@ -4,7 +4,7 @@ export default {
     'russian': 'Русский',
   },
   'general': {
-    'Q': 'Q!',
+    'Q': 'Hi!',
     'title': "I am interested in many things, but this is my priority",
     'frontend': "Frontend",
     'oc': "OC",
@@ -38,13 +38,11 @@ export default {
     },
   },
   'whois': {
-    'genius': "Genius",
-    'sage': "sage",
+    'rust enjoyer': "rust enjoyer",
     'minecraft player': "minecraft player",
     'minecraft server developer': "minecraft server developer",
     'owner of a youTube channel': "owner of a youTube channel",
-    'almost a streamer': "almost a streamer",
-    'kind': "kind",
+    'frontend dev': "Frontend dev",
     'polite': "polite",
     'rofler': "rofler",
     'something else...': "something else..."

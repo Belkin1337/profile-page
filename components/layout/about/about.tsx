@@ -5,8 +5,7 @@ import "keen-slider/keen-slider.min.css"
 
 import { BlockCard } from "@/components/ui/blockCard";
 import BaseAvatar from "@/components/ui/base-avatar";
-import ChangeTheme from "@/components/tools/change-theme";
-import ChangeLang from "@/components/tools/change-lang";
+import Tools from "@/components/tools/tools";
 
 const About = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,8 +18,8 @@ const About = () => {
   const toggleDescription = () => { setIsOpen(!isOpen) };
 
   const specials = [
-    whoisT('genius'), whoisT('sage'), whoisT('minecraft player'), whoisT('minecraft server developer'), whoisT('owner of a youTube channel'),
-    whoisT('almost a streamer'), whoisT('kind'), whoisT('polite'), whoisT('rofler'), whoisT('something else...'),
+    whoisT('frontend dev'), whoisT('rust enjoyer'), whoisT('minecraft player'), whoisT('minecraft server developer'), whoisT('owner of a youTube channel'),
+    whoisT('polite'), whoisT('rofler'), whoisT('something else...'),
   ];
 
   const tm_Skills = [
@@ -95,9 +94,7 @@ const About = () => {
             </div>
           </div>
           <div className="flex items-end justify-end relative gap-2 -bottom-8 left-4 cursor-pointer bg-LIGHT_BACKGROUND/50 dark:bg-MAIN_BACKGROUND/50 h-max self-end">
-            <ChangeTheme />
-            <p className="text-neutral-400 text-[1rem] py-2">|</p>
-            <ChangeLang />
+            <Tools />
           </div>
         </div>
         <div className="flex flex-col bg-gradient-to-l from-gray-900 to-gray-600 rounded-lg cardElement py-6 px-4 xl:px-8 gap-y-4">

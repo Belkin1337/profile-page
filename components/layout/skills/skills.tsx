@@ -67,10 +67,7 @@ const Skills = () => {
       <Title titleBody={titleT('skills.title')} subtitleBody={titleT('skills.subtitle')} />
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 grid-rows-2 gap-4 w-full">
         {skillsData.map((item) => (
-          <TiltCard
-            key={item.name}
-            className="border border-[#52d094] bg-[#101419] cursor-pointer rounded-[20px] text-white overflow-y-auto customCls"
-          >
+          <TiltCard key={item.name} className="border border-[#52d094] bg-[#101419] cursor-pointer rounded-[2px] text-white overflow-y-auto customCls">
             <div className="flex flex-row items-center gap-x-1 justify-center">
               <h2 className="text-[1.8rem] lg:text-[2.4rem]">{item.name}</h2>
               <item.icon color="#00cdb0" size={42} />
