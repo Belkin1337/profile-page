@@ -4,11 +4,6 @@
 
 @import "typed.scss";
 
-@font-face {
-  font-family: Monocraft;
-  src: url('../public/font/Monocraft.otf');
-}
-
 @layer theme {
   .theme {
     @apply from-gray-200 dark:from-gray-950 via-purple-900 to-violet-600
@@ -19,17 +14,19 @@
   }
 }
 
-* {
-  font-family: Monocraft !important;
-}
-
 div ::-webkit-scrollbar {
-  width: 0;
-} ::-webkit-scrollbar {
+  @apply w-[0.4rem]
+} 
+
+::-webkit-scrollbar {
   @apply w-[0.42rem] 
-} ::-webkit-scrollbar-track {
+} 
+
+::-webkit-scrollbar-track {
   @apply bg-gray-950
-} ::-webkit-scrollbar-thumb {
+} 
+
+::-webkit-scrollbar-thumb {
   @apply bg-MAIN_PINK rounded-full
 }
 

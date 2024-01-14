@@ -4,10 +4,14 @@ import { I18nProvider } from '@/lib/next-international'
 import { AppProps } from 'next/app'
 import Head from 'next/head';
 
-import localFont from "next/font/local";
 import { ThemeProvider } from '@/providers/theme-provider';
 
-const font = localFont({ src: "../public/font/Monocraft.otf" });
+import { Montserrat } from 'next/font/google'
+
+const font = Montserrat({
+  subsets: ['latin', 'cyrillic'],
+  display: 'swap',
+})
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

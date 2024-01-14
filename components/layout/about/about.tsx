@@ -67,7 +67,7 @@ const About = () => {
   ];
 
   return (
-    <section className="flex flex-col justify-center items-center min-h-screen py-4 sm:py-8 md:py-8 lg:py-8">
+    <section className="flex flex-col justify-center items-center min-h-screen pt-24 pb-4 sm:py-8 md:py-8 lg:py-8">
       <div className="flex flex-col w-[90%] justify-center gap-y-8">
         <div className="flex flex-col lg:flex-row items-center lg:px-4 py-8 overflow-hidden w-full h-full -lg bg-gradient-to-l from-gray-900 to-gray-600 justify-between">
           <div className="flex flex-col lg:flex-row items-center">
@@ -94,7 +94,7 @@ const About = () => {
             </div>
           </div>
           <div className="flex items-end justify-end relative gap-2 -bottom-8 left-4 cursor-pointer bg-LIGHT_BACKGROUND/50 dark:bg-MAIN_BACKGROUND/50 h-max self-end">
-            <Tools />
+           
           </div>
         </div>
         <div className="flex flex-col bg-gradient-to-l from-gray-900 to-gray-600 rounded-lg cardElement py-6 px-4 xl:px-8 gap-y-4">

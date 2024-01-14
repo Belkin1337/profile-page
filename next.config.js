@@ -10,29 +10,31 @@ const nextConfig = {
       config.resolve = {
         ...config.resolve,
         fallback: {
-
-          // fixes proxy-agent dependencies
           net: false,
           dns: false,
           tls: false,
           assert: false,
-
-          // fixes next-i18next dependencies
           path: false,
           fs: false,
-
-          // fixes mapbox dependencies
           events: false,
-
-          // fixes sentry dependencies
           process: false
         }
       };
     }
     config.module.exprContextCritical = false; 
-
     return config;
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:3006/api/:path*', 
+      },
+    ];
+  },
+  images: {
+    domains: ["i.scdn.co"]
+  }
 }
 
 module.exports = nextConfig
