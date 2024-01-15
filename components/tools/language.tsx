@@ -37,18 +37,18 @@ export const Language = () => {
             </div>
           </HoverCardTrigger>
           <HoverCardContent className="border-0 p-1 m-0 w-max bg-black/90">
-            <p className="text-md text-neutral-400">Сменить язык</p>
+            <p className="text-md text-neutral-400">{servicalT('change lang')}</p>
           </HoverCardContent>
         </HoverCard>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="flex flex-col py-0 w-[280px] px-0 bg-black border-0">
-        <p className="text-light-text text-xl py-2 px-4">
+      <DropdownMenuContent className="flex flex-col py-0 w-[240px] px-0 dark:bg-neutral-800 bg-neutral-600 border-0 overflow-y-auto">
+        <p className="text-light-text text-md md:text-lg py-2 px-4">
           {servicalT('language')}: <span className="text-pink-300">{localeTranslate()}</span>
         </p>
         <DropdownMenuSeparator />
         {langList.map((item, idx) => (
-          <div onClick={item.onClick} key={idx} className="flex hover:bg-neutral-900 rounded-md px-4 py-2 cursor-pointer hover:duration-200 duration-200">
-            <p className="text-light-text text-xl">
+          <div onClick={item.onClick} key={idx} className="flex hover:bg-neutral-900 px-4 py-1 cursor-pointer hover:duration-200 duration-200">
+            <p className="text-light-text text-md md:text-lg">
               {item.label}
             </p>
           </div>

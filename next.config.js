@@ -33,7 +33,7 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ["i.scdn.co"]
+    domains: ["i.scdn.co", "cdn.discordapp.com"]
   }
 }
 

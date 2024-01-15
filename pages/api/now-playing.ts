@@ -1,15 +1,23 @@
-
+/* eslint-disable import/no-anonymous-default-export */
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getNowPlaying } from '../../lib/spotify'
+import querystring from 'querystring';
+
+const client_id = process.env.SPOTIFY_CLIENT_ID;
+const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
+const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
+
+const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
+const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
+const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 interface SpotifySong {
   is_playing: boolean;
-  progress_ms: number,
+  progress_ms: number;
   item: {
     name: string;
-    artists: { 
-      name: string,
-      external_urls: { 
+    artists: {
+      name: string;
+      external_urls: {
         spotify: string;
       };
     }[];
@@ -22,9 +30,28 @@ interface SpotifySong {
   };
 }
 
-export default async (_:NextApiRequest, res:NextApiResponse) => {
+const getAccessToken = async () => {
+  const response = await fetch(TOKEN_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${basic}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: querystring.stringify({
+      grant_type: 'refresh_token',
+      refresh_token,
+    }),
+  });
+
+  return response.json();
+};
+
+export default async (_: NextApiRequest, res: NextApiResponse) => {
   try {
-    const response = await getNowPlaying();
+    const { access_token } = await getAccessToken();
+
+    const response = await fetch(NOW_PLAYING_ENDPOINT, {
+      headers: { Authorization: `Bearer ${access_token}` } });
 
     if (response.status === 204 || response.status > 400) {
       return res.status(200).json({ isPlaying: false });
@@ -40,8 +67,6 @@ export default async (_:NextApiRequest, res:NextApiResponse) => {
     const duration: number = song.item.duration_ms;
     const progress: number = song.progress_ms;
 
-    res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=1');
-
     return res.status(200).json({
       album,
       albumImageUrl,
@@ -50,12 +75,10 @@ export default async (_:NextApiRequest, res:NextApiResponse) => {
       songUrl,
       title,
       duration,
-      progress
+      progress,
     });
-
   } catch (error) {
-    
     console.error('Error fetching now playing:', error);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
-}
+};

@@ -1,41 +1,27 @@
-import { useState } from "react"
-import Link from "next/link";
-import { useScopedI18n, useCurrentLocale } from '@/lib/next-international'
+import { useScopedI18n } from '@/lib/next-international'
 import "keen-slider/keen-slider.min.css"
 
-import { BlockCard } from "@/components/ui/blockCard";
-import BaseAvatar from "@/components/ui/base-avatar";
-import Tools from "@/components/tools/tools";
+import { BlockCard } from "@/components/ui/block-card";
+import { BaseAvatar } from "@/components/ui/base-avatar";
+import { AboutYourself } from "@/components/about-yourself";
 
 const About = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const whoisT = useScopedI18n('whois')
-  const locale = useCurrentLocale()
-  const servicalT = useScopedI18n('servical')
   const generalT = useScopedI18n('general')
-
-  const toggleDescription = () => { setIsOpen(!isOpen) };
-
-  const specials = [
-    whoisT('frontend dev'), whoisT('rust enjoyer'), whoisT('minecraft player'), whoisT('minecraft server developer'), whoisT('owner of a youTube channel'),
-    whoisT('polite'), whoisT('rofler'), whoisT('something else...'),
-  ];
+  const servicalT = useScopedI18n('servical');
 
   const tm_Skills = [
     {
-      title: generalT('frontend'),
-      anchor: "frontend",
-      description: "Веб типа",
+      title: generalT('web'),
+      since: 2023,
       full: [
         { name: "HTML + CSS", time: "Июнь, 2023" },
         { name: "React", time: "Июль, 2023" },
         { name: "NextJS", time: "Август, 2023" },
       ]
     },
-    { title: generalT('oc') },
     {
-      title: generalT('minecraft'), anchor: "minecraft", description: "Майн",
+      title: generalT('minecraft'),
+      since: 2012,
       full: [
         { name: "Первый вход в игру", time: "~2013" },
         { name: "Знакомство с серверами", time: "~2013" },
@@ -45,7 +31,8 @@ const About = () => {
       ]
     },
     {
-      title: generalT('youtube'), anchor: "youtube", description: "Ютубчик",
+      title: generalT('youtube'),
+      since: 2020,
       full: [
         { name: "Регистрация на платформе", time: "5 апреля 2014" },
         { name: "Первое видео", time: "~2017" },
@@ -55,7 +42,12 @@ const About = () => {
       ]
     },
     {
-      title: generalT('music'), anchor: "music", description: "Ютубчик",
+      title: generalT('java'),
+      since: 2022,
+    },
+    {
+      title: generalT('music'),
+      since: 2021,
       full: [
         { name: "Регистрация на платформе", time: "5 апреля 2014" },
         { name: "Первое видео", time: "~2017" },
@@ -67,49 +59,27 @@ const About = () => {
   ];
 
   return (
-    <section className="flex flex-col justify-center items-center min-h-screen pt-24 pb-4 sm:py-8 md:py-8 lg:py-8">
+    <section className="flex flex-col justify-center items-center min-h-screen pt-24 pb-4">
       <div className="flex flex-col w-[90%] justify-center gap-y-8">
-        <div className="flex flex-col lg:flex-row items-center lg:px-4 py-8 overflow-hidden w-full h-full -lg bg-gradient-to-l from-gray-900 to-gray-600 justify-between">
-          <div className="flex flex-col lg:flex-row items-center">
-            <BaseAvatar />
-            <div className="flex flex-col pl-2 items-start justify-end w-full lg:w-1/2 h-max relative">
-              <h1 className="text-small lg:text-[2.6rem] text-[1.6rem] mb-6 text-MAIN_SEAWAVE">
-                {generalT('Q')}&nbsp;
-                <span className={`${locale === 'ru' ? 'welcoming-ru' : 'welcoming-en'}`} />
-              </h1>
-              <div className="flex flex-col">
-                <h2 className={isOpen ? 'hidden' : 'text-[1rem] lg:text-[2rem] text-MAIN_PINK'}>
-                  {specials.slice(0, 3).join(', ') + '...'}
-                  <button onClick={toggleDescription} className={isOpen ? 'hidden' : 'text-SERVICE_BUTTON'}>
-                    [{servicalT('expand')}]
-                  </button>
-                </h2>
-                <h2 className={isOpen ? 'text-[1.2rem] lg:text-[2rem] text-MAIN_PINK' : 'hidden'}>
-                  {specials.join(', ')}
-                  <button onClick={toggleDescription} className={isOpen ? 'text-SERVICE_BUTTON' : 'hidden'}>
-                    [{servicalT('hide')}]
-                  </button>
-                </h2>
-              </div>
+        <div className="lg:px-1 py-1 overflow-hidden bg-gradient-to-tl rounded-xl from-stone-500 via-cyan-500 to-green-300">
+          <div className="flex flex-col lg:flex-row items-center lg:px-3 rounded-xl py-7 w-full h-full bg-neutral-700 dark:bg-neutral-950 justify-between">
+            <div className="flex flex-col lg:flex-row items-center">
+              <BaseAvatar />
+              <AboutYourself />
             </div>
           </div>
-          <div className="flex items-end justify-end relative gap-2 -bottom-8 left-4 cursor-pointer bg-LIGHT_BACKGROUND/50 dark:bg-MAIN_BACKGROUND/50 h-max self-end">
-           
-          </div>
         </div>
-        <div className="flex flex-col bg-gradient-to-l from-gray-900 to-gray-600 rounded-lg cardElement py-6 px-4 xl:px-8 gap-y-4">
-          <h1 className="text-white text-[1.4rem] xl:text-[2rem]">{generalT('title')}</h1>
-          <div className="flex flex-row flex-wrap gap-x-4 gap-y-4 xl:items-center">
-            {tm_Skills.map((item) => (
-              <Link key={item.title} href={`#` + item.anchor}>
-                <BlockCard
-                  className="bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-indigo-400 via-pink to-amber-300"
-                  padding="rectangle"
-                >
-                  {item.title}
-                </BlockCard>
-              </Link>
-            ))}
+        <div className="py-1 xl:px-1 bg-gradient-to-tl rounded-xl from-stone-500 via-cyan-500 to-green-300">
+          <div className="flex flex-col gap-y-4 xl:px-7 px-3 py-5 rounded-xl bg-neutral-700 dark:bg-neutral-950">
+            <h1 className="text-white text-[1.4rem] xl:text-[2rem]">{generalT('title')}</h1>
+            <div className="flex flex-row flex-wrap gap-x-4 gap-y-4 xl:items-center">
+              {tm_Skills.map((item) => (
+                <div key={item.title} className="flex flex-col border border-neutral-700 bg-neutral-800 p-4 rounded-xl items-center">
+                  <p className="text-2xl text-white">{item.title}</p>
+                  <p className="text-xl text-neutral-400">({servicalT('since')} {item.since})</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

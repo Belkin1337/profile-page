@@ -1,15 +1,18 @@
 {
   "extends": "next/core-web-vitals",
-  "import/no-anonymous-default-export": ["error", {
+  "rules": {
+    //...
+    "import/no-anonymous-default-export": ["error", {
     "allowArray": false,
     "allowArrowFunction": false,
     "allowAnonymousClass": false,
     "allowAnonymousFunction": false,
-    "allowCallExpression": true, 
+    "allowCallExpression": false, // backward compatibility -> e.g. export default foo(bar)
     "allowNew": false,
     "allowLiteral": false,
-    "allowObject": false
-}]
+    "allowObject": true
+  }]
+ }
 }
 
 

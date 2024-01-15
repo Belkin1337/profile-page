@@ -1,71 +1,54 @@
 import Image from "next/image"
-import { Menu } from 'lucide-react';
-import { Github } from 'lucide-react';
-import { Language } from "./tools/language"
-import { Theme } from "./tools/theme";
-import { TrackProps } from '../types/track-types';
-import { CurrentTrack } from "./current-track";
-import { useEffect, useState } from "react";
+import { Braces } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { RightPanel } from "./right-panel";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
+import { useScopedI18n } from "@/lib/next-international";
+import { useEffect, useState } from "react";
 
+export const Header = () => {
+  const [side, setSide] = useState<'right' | 'bottom'>('right'); 
+  const servicalT = useScopedI18n('servical')
 
-export const Header = ({ data }: TrackProps) => {
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      setSide(screenWidth < 720 ? 'bottom' : 'right');
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
+
   return (
     <Sheet>
-      <div className="fixed top-0 right-0 left-0 w-full bg-MAIN_BACKGROUND/80 backdrop-filter backdrop-blur-md z-20">
+      <div className="fixed top-0 right-0 left-0 w-full bg-neutral-950/80 backdrop-filter backdrop-blur-md z-20">
         <div className="flex items-center w-[90%] mx-auto py-2 justify-between">
           <div className="flex gap-x-4 items-center">
-            <div className="overflow-hidden rounded-xl border-2 border-transparent cursor-pointer hover:border-b-MAIN_PINK hover:border-r-MAIN_PINK hover:duration-300 duration-300">
+            <div className="overflow-hidden rounded-xl border-2 border-transparent cursor-pointer 
+            hover:border-b-MAIN_PINK hover:border-r-MAIN_PINK hover:duration-300 duration-300">
               <Image src="/favicon.png" width={52} height={52} alt="pureawake avatar" />
             </div>
-            <p className="text-white text-xl font-bold">/dev/pureawake</p>
+            <p className="text-white text-xl font-bold">dev/pureawake</p>
           </div>
           <SheetTrigger>
-            <Menu size={24} color="white" />
+            <HoverCard openDelay={1} closeDelay={1}>
+              <HoverCardTrigger>
+                <Braces size={24} color="white" />
+              </HoverCardTrigger>
+              <HoverCardContent className="border-0 p-1 m-0 w-max bg-black/90">
+                <p className="text-md text-neutral-400">{servicalT('widget')}</p>
+              </HoverCardContent>
+            </HoverCard>
           </SheetTrigger>
         </div>
       </div>
-      <SheetContent className="bg-dark-text p-0 m-0 border-l-dark-violet_miami">
-        <div className="flex flex-col overflow-hidden h-[116px]">
-          <img className="object-cover w-full" src="/images/avatars/avatar3.jpg" alt="cover" />
-        </div>
-        <div className="relative -top-14 left-4 w-[112px] h-[112px] overflow-hidden rounded-full border-8 border-dark-text">
-          <img src="/images/avatars/avatar2.jpg" className="w-full h-full object-cover" alt="" />
-        </div>
-        <div className="relative -top-8 mx-4 p-4 bg-black/80 rounded-xl flex flex-col">
-          <div className="flex flex-col w-full">
-            <p className="font-medium text-2xl text-white">Белкин</p>
-            <HoverCard openDelay={1} closeDelay={1}>
-              <HoverCardTrigger className="cursor-default">
-                <p className="font-normal text-lg text-white">pureawake/he/her</p>
-              </HoverCardTrigger>
-              <HoverCardContent className="border-0 p-1 m-0 w-max bg-black/90">
-                <p className="text-md text-neutral-400">Местоимения</p>
-              </HoverCardContent>
-            </HoverCard>
-          </div>
-        </div>
-        <div className="relative -top-4 mx-4 p-4 overflow-hidden rounded-xl bg-black/80">
-          <p className="font-medium text-lg text-white cursor-default">О себе:</p>
-          <div className="flex flex-col w-full">
-            <p className="text-white text-md">Абоба</p>
-            <p className="text-white text-md">Кстати, вот мой проектик:&nbsp;
-              <a href="https://fasberry.ru/" target="_blank" className="hover:underline">https://fasberry.ru</a>
-            </p>
-          </div>
-        </div>
-        <div className="relative -top-0 mx-4 overflow-hidden rounded-xl p-4 bg-black/80">
-          <p className="font-medium text-lg text-white cursor-default">Сейчас слушает в Spotify:</p>
-          <CurrentTrack data={data} />
-        </div>
-        <div className="relative top-4 mx-4 overflow-hidden rounded-xl p-4 bg-black/80">
-          <p className="font-medium text-lg text-white cursor-default">Настройки:</p>
-          <div className="flex items-center gap-x-4">
-            <Language />
-            <Theme />
-          </div>
-        </div>
+      <SheetContent side={side} className="pl-1 pr-0 py-0 border-0 m-0 bg-gradient-to-tl rounded-none from-stone-500 via-cyan-500 overflow-y-auto to-green-300">
+        <RightPanel/>
       </SheetContent>
     </Sheet>
   )

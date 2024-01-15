@@ -6,11 +6,11 @@ export default {
   'general': {
     'Q': 'Ку!',
     'title': "Я интересуюсь многим, но в приоритете",
-    'frontend': "Фронтенд",
-    'oc': "OC",
-    'minecraft': "Майнкрафт",
-    'youtube': "Ютуб",
-    'music': "Музыка"
+    'web': "веб",
+    'minecraft': "майнкрафт",
+    'youtube': "ютуб",
+    'java': 'джава',
+    'music': "музыка"
   },
   'other': {
     'I': 'Я',
@@ -39,15 +39,22 @@ export default {
   },
   'servical': {
     'settings': 'Настройки',
-    'theme': 'Тема',
-    'language': 'Язык',
+    'theme': 'Щас',
+    'change theme': "Тема",
+    'change lang': 'Язык',
+    'language': 'Щас',
     'dark': 'Тёмная',
     'light': 'Светлая',
     'mycolor': 'Моя цветовая схема',
     'expand': "раскрыть",
     'hide': "скрыть",
+    'widget': 'Виджет',
     'sources': "Исходники",
     'demo': "Демо",
+    'since': 'с',
+    'pronouns': 'Местоимения',
+    'about me': 'О себе',
+    'Currently listening on Spotify': 'Сейчас слушает в Spotify',
     'tooltip-link': 'Перейти по ссылке',
     'form': {
       'input': {
@@ -73,14 +80,14 @@ export default {
     'usefulLinks': 'Полезные ссылки'
   },
   'whois': {
-    'rust enjoyer': "любитель раста",
-    'minecraft player': "игрок в майнкрафт",
-    'minecraft server developer': "разработчик сервера в майнкрафте",
-    'owner of a youTube channel': "обладатель канала на ютубе",
-    'frontend dev': "Фронтенд дев",
-    'polite': "вежливый",
-    'rofler': "рофловый",
-    'something else...': "что-то ещё..."
+    'frontend dev': "Фронтенд разработчик",
+    'almost a web designer': 'почти веб-дизайнер',
+    'gentleman': 'джентельмен',
+    'genius': "гений",
+    'own a computer': "владелец компьютера",
+    'human XXI': "человек, родившийся в 21 веке",
+    'sage': "мудрец",
+    'minecrafter': "майнкрафтер"
   },
   'skills': {
     'title': "Скиллы",
@@ -104,12 +111,11 @@ export default {
     },
     'fasberryWeb': {
       'title': "Сайт моего проекта по майнкрафту",
-      'description': "Самый первый мой проект. Содержит основную информацию о проектe Fasberry",
+      'description': "Самый первый мой проект. Содержит основную информацию о проектe Fasberry, справочник по игре и т.д.",
     },
     'profilepage': {
       'title': "Страница-профиль",
       'description': "Личная страница со всей информацией о Русе Белкине, собственно где вы сейчас и находитесь."
     }
-    
   }
 } as const

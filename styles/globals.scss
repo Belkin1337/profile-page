@@ -49,3 +49,19 @@ div ::-webkit-scrollbar {
 			1.5, (caret-width: 4px, caret-space: 2px)
 		);
 }
+
+
+.marquee-animation {
+  white-space: nowrap;
+  overflow: visible;
+  animation: moveText 12s linear infinite;
+}
+
+@keyframes moveText {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

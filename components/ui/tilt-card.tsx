@@ -12,7 +12,7 @@ export const tiltVariants = cva(
         default: "h-[370px] lg:h-[540px]"
       },
       shadow: {
-        default: "shadow-MAIN_SEAWAVE"
+        default: "shadow-via-cyan-500"
       }
     },
     defaultVariants: {
@@ -32,30 +32,12 @@ export interface TiltCardVariantsProps
   VariantProps<typeof tiltVariants>,
   TiltCardProps { children: React.ReactNode }
 
-const TiltCard: React.FC<TiltCardVariantsProps> = ({ 
-  className, 
-  variant, 
-  size, 
-  shadow, 
-  children 
-}) => {
+export const TiltCard = ({ className, variant, size, shadow, children }: TiltCardVariantsProps) => {
   return (
-    <Tilt
-      tiltAngleXInitial={2}
-      tiltAngleYInitial={4}
-      tiltAxis="x"
-      gyroscope
-      transitionEasing="cubic-bezier(.03,.98,.52,.99)"
-      className={tiltVariants({ 
-        variant, 
-        size, 
-        shadow, 
-        className }
-      )}
-    >
+    <Tilt tiltAngleXInitial={2} tiltAngleYInitial={4}
+      tiltAxis="x" gyroscope transitionEasing="cubic-bezier(.03,.98,.52,.99)"
+      className={tiltVariants({ variant, size, shadow, className })}>
       {children}
     </Tilt >
   );
 }
-
-export default TiltCard;

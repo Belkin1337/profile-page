@@ -6,11 +6,11 @@ export default {
   'general': {
     'Q': 'Hi!',
     'title': "I am interested in many things, but this is my priority",
-    'frontend': "Frontend",
-    'oc': "OC",
-    'minecraft': "Minecraft",
-    'youtube': "Youtube",
-    'music': "Music"
+    'web': "web",
+    'minecraft': "minecraft",
+    'youtube': "youtube",
+    'java': 'java',
+    'music': "music"
   },
   'other': {
     'I': 'I',
@@ -38,26 +38,33 @@ export default {
     },
   },
   'whois': {
-    'rust enjoyer': "rust enjoyer",
-    'minecraft player': "minecraft player",
-    'minecraft server developer': "minecraft server developer",
-    'owner of a youTube channel': "owner of a youTube channel",
-    'frontend dev': "Frontend dev",
-    'polite': "polite",
-    'rofler': "rofler",
-    'something else...': "something else..."
+    'frontend dev': "Frontend developer",
+    'almost a web designer': 'almost a web designer',
+    'gentleman': 'gentleman',
+    'genius': "genius",
+    'own a computer': "owner a computer",
+    'human XXI': "person born in the 21st century",
+    'sage': "sage",
+    'minecrafter': "minecraft player"
   },
   'servical': {
     'settings': 'Settings',
-    'theme': 'Theme',
-    'language': 'Language',
+    'theme': 'Now',
+    'change theme': "Theme",
+    'change lang': 'Language',
+    'language': 'Now',
     'dark': 'Dark',
     'light': 'Light',
     'mycolor': 'My color schem',
     'expand': "expand",
+    'widget': 'Widget',
     'hide': "hide",
     'sources': "Source",
     'demo': "Demo",
+    'since': 'since',
+    'pronouns': 'Pronouns',
+    'about me': 'About Me',
+    'Currently listening on Spotify': 'Currently listening on Spotify',
     'tooltip-link': 'Follow the link',
     'form': {
       'input': {
