@@ -72,9 +72,9 @@ const About = () => {
         <div className="py-1 xl:px-1 bg-gradient-to-tl rounded-xl from-stone-500 via-cyan-500 to-green-300">
           <div className="flex flex-col gap-y-4 xl:px-7 px-3 py-5 rounded-xl bg-neutral-700 dark:bg-neutral-950">
             <h1 className="text-white text-[1.4rem] xl:text-[2rem]">{generalT('title')}</h1>
-            <div className="flex flex-wrap gap-2 md:gap-4 xl:items-center">
+            <div className="flex flex-wrap gap-4 xl:items-center">
               {tm_Skills.map((item) => (
-                <div key={item.title} className="flex flex-col border border-neutral-700 bg-neutral-800 p-4 rounded-xl items-center">
+                <div key={item.title} className="flex flex-row gap-x-4 md:flex-col border border-neutral-700 w-full md:w-max bg-neutral-800 p-2 md:p-4 rounded-xl items-center">
                   <p className="text-xl md:text-2xl text-white">{item.title}</p>
                   <p className="text-lg md:text-xl text-neutral-400">({servicalT('since')} {item.since})</p>
                 </div>
