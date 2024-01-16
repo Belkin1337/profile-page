@@ -14,9 +14,17 @@
   }
 }
 
-div ::-webkit-scrollbar {
+div::-webkit-scrollbar {
   @apply w-[0.4rem]
 } 
+
+div::-webkit-scrollbar-track {
+  @apply dark:bg-neutral-900 bg-neutral-600
+}
+
+div::-webkit-scrollbar-thumb {
+  @apply bg-neutral-800
+}
 
 ::-webkit-scrollbar {
   @apply w-[0.42rem] 
