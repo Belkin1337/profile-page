@@ -4,6 +4,7 @@ module.exports = {
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
+    './ui/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
 	],
@@ -44,7 +45,7 @@ module.exports = {
       gradient: {
         DARK: "from-gray-950 via-purple-900 to-violet-600",
         LIGHT: "from-gray-200 via-purple-900 to-violet-600"
-      }
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

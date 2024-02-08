@@ -1,12 +1,10 @@
-import '@/styles/globals.scss'
-
+import Head from 'next/head';
 import { I18nProvider } from '@/lib/next-international'
 import { AppProps } from 'next/app'
-import Head from 'next/head';
-
 import { ThemeProvider } from '@/providers/theme-provider';
-
 import { Montserrat } from 'next/font/google'
+import '@/styles/globals.scss'
+import "@/styles/typed.scss"
 
 const font = Montserrat({
   subsets: ['latin', 'cyrillic'],

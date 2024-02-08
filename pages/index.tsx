@@ -1,9 +1,9 @@
 // import Contacts from '@/components/layout/contacts/contacts';
-import Projects from '@/components/layout/projects/projects';
-import About from '@/components/layout/about/about';
-import Skills from '@/components/layout/skills/skills';
+import { Projects } from '@/components/projects';
+import { Skills }  from '@/components/skills';
 // import Interests from '@/components/layout/interests/interests';
-import { Header } from '@/components/header';
+import { Header } from '@/components/layout/header';
+import { About } from '@/components/about';
 
 export default function Home() {
   return (

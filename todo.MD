@@ -5,4 +5,4 @@
 
 - [ ] use Google API to fetch data from a YouTube channel
 - [ ] use telegram api to fetch telegram channel data
-- [ ] use spotify api to fetch my user's data
+- [X] use spotify api to fetch my user's data

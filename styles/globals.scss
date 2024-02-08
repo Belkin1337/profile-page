@@ -4,6 +4,27 @@
 
 @import "typed.scss";
 
+.welcoming-ru {
+  @include typed(
+			"Я Руся Белкин.",
+			"Или Belkin.",
+			"Или pureawake.",
+      "Или просто белка.",
+			1.5, (caret-width: 4px, caret-space: 2px)
+		);
+}
+
+.welcoming-en {
+  @include typed(
+		"I'm Rusya Belkin.",
+		"Or Belkin.",
+		"Or pureawake.",
+    "Or just a belka.",
+		1.5, (caret-width: 4px, caret-space: 2px)
+	);
+} 
+
+
 @layer theme {
   .theme {
     @apply from-gray-200 dark:from-gray-950 via-purple-900 to-violet-600
@@ -37,27 +58,6 @@ div::-webkit-scrollbar-thumb {
 ::-webkit-scrollbar-thumb {
   @apply bg-MAIN_PINK rounded-full
 }
-
-.welcoming-ru {
-  @include typed(
-			"Я Руся Белкин.",
-			"Или Belkin.",
-			"Или pureawake.",
-      "Или просто белка.",
-			1.5, (caret-width: 4px, caret-space: 2px)
-		);
-}
-
-.welcoming-en {
-  @include typed(
-			"I'm Rusya Belkin.",
-			"Or Belkin.",
-			"Or pureawake.",
-      "Or just a belka.",
-			1.5, (caret-width: 4px, caret-space: 2px)
-		);
-}
-
 
 .marquee-animation {
   white-space: nowrap;
