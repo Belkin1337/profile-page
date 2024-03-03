@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority"
 
 const wrapperVariants = cva(
-  "flex flex-col items-center w-[90%] mx-auto relative gap-y-6", {
+  "flex flex-col items-center w-[90%] mx-auto relative gap-y-6 overflow-hidden", {
     variants: {
       variant: {
         centered: "justify-center",

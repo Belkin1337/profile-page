@@ -1,18 +1,32 @@
-// import Contacts from '@/components/layout/contacts/contacts';
-import { Projects } from '@/components/projects';
-import { Skills }  from '@/components/skills';
-// import Interests from '@/components/layout/interests/interests';
 import { Header } from '@/components/layout/header';
-import { About } from '@/components/about';
+import { Wrapper } from '@/ui/wrapper';
+import { DotBackgroundDemo } from '@/ui/dot-background';
+import { AboutSection } from '@/components/section/about';
+import dynamic from 'next/dynamic';
+
+// const FeedbackSection = dynamic(() =>
+//   import('@/components/section/feedback').then((mod) => mod.FeedbackSection)
+// )
+
+const ProjectsSection = dynamic(() =>
+  import('@/components/section/projects').then((mod) => mod.ProjectsSection)
+)
+
+const SkillsSection = dynamic(() =>
+  import('@/components/section/skills').then((mod) => mod.SkillsSection)
+)
 
 export default function Home() {
   return (
-    <div className="theme bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))]">
-      <Header />
-      <About />
-      <Skills />
-      {/* <Interests /> */}
-      <Projects />
-    </div>
+    <Wrapper>
+      <AboutSection />
+      <SkillsSection />
+      {/* Interests Section
+        <Title id="interests" titleBody={titleT('interests.title')} subtitleBody={titleT('interests.subtitle')} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 2xl:grid-cols-3 auto-rows-auto w-full gap-4">
+        </div> */}
+      <ProjectsSection />
+      {/* <FeedbackSection /> */}
+    </Wrapper>
   )
 }

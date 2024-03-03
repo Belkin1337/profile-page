@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* config styles */
+@layer theme {
+  .theme {
+    @apply from-gray-200 dark:from-gray-950 via-purple-900 to-violet-600
+  }
+
+  .theme_components {
+    @apply bg-gradient-to-br from-gray-200 dark:from-gray-950 dark:via-purple-900 to-violet-600
+  }
+}
+
+div::-webkit-scrollbar {
+  @apply w-[0.4rem]
+} 
+
+div::-webkit-scrollbar-track {
+  @apply dark:bg-neutral-900 bg-neutral-600
+}
+
+div::-webkit-scrollbar-thumb {
+  @apply bg-neutral-800
+}
+
+::-webkit-scrollbar {
+  @apply w-[0.42rem] 
+} 
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-950
+} 
+
+::-webkit-scrollbar-thumb {
+  @apply bg-MAIN_PINK rounded-full
+}
+
+
+/* servical styles */
+.marquee-animation {
+  white-space: nowrap;
+  overflow: visible;
+  animation: moveText 12s linear infinite;
+}
+
+@keyframes moveText {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

@@ -1,4 +1,4 @@
-import { cn } from "@/utils/styles"
+import { cn } from "@/lib/utils/styles"
 
 export const Skeleton = ({
   className,

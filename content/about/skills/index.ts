@@ -2,7 +2,7 @@ import { AiFillSetting } from "react-icons/ai";
 import { LiaLanguageSolid } from "react-icons/lia";
 import { VscTools } from "react-icons/vsc";
 
-export const data = (skillsT: Function) => {
+export const skillsData = (skillsT: Function) => {
   return [
     {
       name: skillsT("languages"),

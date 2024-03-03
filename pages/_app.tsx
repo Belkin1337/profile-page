@@ -3,19 +3,25 @@ import { I18nProvider } from '@/lib/next-international'
 import { AppProps } from 'next/app'
 import { ThemeProvider } from '@/providers/theme-provider';
 import { Montserrat } from 'next/font/google'
-import '@/styles/globals.scss'
-import "@/styles/typed.scss"
+import { TooltipProvider } from '@/ui/tooltip';
+import { DotBackgroundDemo } from '@/ui/dot-background';
+import { Header } from '@/components/layout/header';
+import '@/styles/globals.css'
+import { Toaster } from '@/ui/toaster';
 
 const font = Montserrat({
   subsets: ['latin', 'cyrillic'],
   display: 'swap',
 })
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps
+}: AppProps) {
   return (
     <>
       <Head>
-        <title>pureawake | dev</title>
+        <title>pureawake</title>
         <meta name="description" content="Ку! Я pureawake. Здесь вы можете узнать больше обо мне, моих интересах и скиллах." />
         <meta name="keywords" content="pureawake, личная страница, интересы, профиль" />
         <meta name="author" content="pureawake" />
@@ -33,9 +39,15 @@ export default function App({ Component, pageProps }: AppProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <main className={font.className}>
-            <Component {...pageProps} />
-          </main>
+          <TooltipProvider>
+            <main className={font.className}>
+              <DotBackgroundDemo>
+                <Header />
+                <Component {...pageProps} />
+              </DotBackgroundDemo>
+              <Toaster />
+            </main>
+          </TooltipProvider>
         </ThemeProvider>
       </I18nProvider>
     </>

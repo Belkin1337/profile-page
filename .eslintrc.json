@@ -7,12 +7,10 @@
     "allowArrowFunction": false,
     "allowAnonymousClass": false,
     "allowAnonymousFunction": false,
-    "allowCallExpression": false, // backward compatibility -> e.g. export default foo(bar)
+    "allowCallExpression": false,
     "allowNew": false,
     "allowLiteral": false,
     "allowObject": true
   }]
  }
 }
-
-

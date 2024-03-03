@@ -1,4 +1,4 @@
-import { data } from "@/content/avatars";
+import { avatarsData } from "@/content/avatars";
 import { useScopedI18n } from "@/lib/next-international";
 import { useKeenSlider, KeenSliderPlugin } from "keen-slider/react"
 import Image from "next/image"
@@ -65,7 +65,7 @@ const WheelControls: KeenSliderPlugin = (slider) => {
 export const BaseAvatar = () => {
   const otherT = useScopedI18n('other')
   
-  const avatarsArr = data(otherT)
+  const avatarsArr = avatarsData(otherT)
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>(
     {
@@ -90,7 +90,7 @@ export const BaseAvatar = () => {
             loading="lazy"
             height={400}
             title={item.title}
-            className={`keen-slider__slide duration-300 w-fit transition number-slide${idx + 1}`}
+            className={`keen-slider__slide duration-300 w-full transition number-slide${idx + 1}`}
           />
         ))}
       </div>

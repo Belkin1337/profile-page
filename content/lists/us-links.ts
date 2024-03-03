@@ -1,4 +1,4 @@
-const usefulLinks = [
+export const usefulLinks = [
   "https://nohello.net/ru/",
   "http://paletton.com/",
   "https://toggl.com",
@@ -10,5 +10,3 @@ const usefulLinks = [
   "https://codellama.dev/",
   "https://supertools.therundown.ai",
 ]
-
-export { usefulLinks }

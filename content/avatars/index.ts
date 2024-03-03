@@ -1,4 +1,4 @@
-export const data = (otherT: Function) => {
+export const avatarsData = (otherT: Function) => {
   return [
     {
       title: otherT("I"),

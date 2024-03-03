@@ -1,4 +1,4 @@
-type SpotifySong = {
+export interface SpotifySong {
   is_playing: boolean;
   progress_ms: number;
   item: {
@@ -11,9 +11,13 @@ type SpotifySong = {
     }[];
     album: {
       name: string;
-      images: { url: string }[];
+      images: { 
+        url: string 
+      }[];
     };
-    external_urls: { spotify: string };
+    external_urls: { 
+      spotify: string 
+    };
     duration_ms: number;
   };
 };

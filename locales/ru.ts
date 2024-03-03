@@ -4,6 +4,12 @@ export default {
     'russian': 'Русский',
   },
   'general': {
+    'Iam': `Я`,
+    'Rusya': `Руся`,
+    'Belkin': `Белкин`,
+    'or': 'или',
+    'just': 'просто',
+    'belka': 'белка',
     'Q': 'Ку!',
     'title': "Я интересуюсь многим, но в приоритете",
     'web': "веб",
@@ -46,8 +52,8 @@ export default {
     'dark': 'Тёмная',
     'light': 'Светлая',
     'mycolor': 'Моя цветовая схема',
-    'expand': "раскрыть",
-    'hide': "скрыть",
+    'expand': "Раскрыть",
+    'hide': "Скрыть",
     'widget': 'Виджет',
     'sources': "Исходники",
     'demo': "Демо",
@@ -55,6 +61,7 @@ export default {
     'pronouns': 'Местоимения',
     'about me': 'О себе',
     'Currently listening on Spotify': 'Сейчас слушает в Spotify',
+    'Offline': 'Оффлайн',
     'tooltip-link': 'Перейти по ссылке',
     'form': {
       'input': {

@@ -1,32 +1,29 @@
+import { 
+  AUTH_TOKEN,
+  NOW_PLAYING_ENDPOINT, 
+  REFRESH_TOKEN, 
+  TOKEN_ENDPOINT 
+} from "@/lib/constants";
+import { SpotifySong } from "@/types/spotify";
 import { NextApiRequest, NextApiResponse } from "next";
-
-const client_id = process.env.SPOTIFY_CLIENT_ID;
-const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
-const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
-const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
-const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
-const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 async function getAccessToken() {
   const response = await fetch(TOKEN_ENDPOINT, {
     method: "POST",
     headers: {
-      Authorization: `Basic ${basic}`,
+      Authorization: `Basic ${AUTH_TOKEN}`,
       "Content-Type": "application/x-www-form-urlencoded",
     },
     body: JSON.stringify({
       grant_type: "refresh_token",
-      refresh_token,
+      REFRESH_TOKEN,
     }),
   });
 
   return response.json();
 };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { access_token } = await getAccessToken();
 
@@ -43,29 +40,9 @@ export default async function handler(
     }
 
     const song: SpotifySong = await response.json();
-    const isPlaying: boolean = song.is_playing;
-    const title: string = song.item.name;
-    const artist: string = song.item.artists.map((_artist) => _artist.name).join(", ");
-    const album: string = song.item.album.name;
-    const albumImageUrl: string = song.item.album.images[0].url;
-    const songUrl: string = song.item.external_urls.spotify;
-    const duration: number = song.item.duration_ms;
-    const progress: number = song.progress_ms;
 
-    return res.status(200).json({
-      album,
-      albumImageUrl,
-      artist,
-      isPlaying,
-      songUrl,
-      title,
-      duration,
-      progress,
-    });
-
+    return res.status(200).json({ song });
   } catch {
-    return res.status(500).json({ 
-      error: "Internal Server Error" 
-    });
+    return res.status(500).end()
   }
 }

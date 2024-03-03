@@ -1,5 +1,11 @@
+import { 
+  BsGithub, 
+  BsPinterest, 
+  BsSpotify, 
+  BsTelegram, 
+  BsTwitter 
+} from "react-icons/bs";
 import { Instagram } from "lucide-react";
-import { BsGithub, BsPinterest, BsSpotify, BsTelegram, BsTwitter } from "react-icons/bs";
 
 export const contactsList = [
   {
@@ -33,3 +39,20 @@ export const contactsList = [
     link: "https://twitter.com/jolycock",
   },
 ]
+
+export const inputs = (servicalT: Function) => {
+  return [
+    {
+      name: "name",
+      placeholder: servicalT('form.input.placeholder.name')
+    },
+    {
+      name: "topic",
+      placeholder: servicalT('form.input.placeholder.topic')
+    },
+    {
+      name: "contact",
+      placeholder: servicalT('form.input.placeholder.contact')
+    },
+  ]
+}
