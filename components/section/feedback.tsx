@@ -1,12 +1,12 @@
-import { Card } from "@/ui/card"
-import { Title } from "@/ui/title"
+import { Card } from "@/ui/components/card"
+import { Title } from "@/ui/components/title"
 import { FeedbackForm } from "../forms/feedback-form"
-import { Meteors } from "@/ui/meteors"
-import { useScopedI18n } from "@/lib/next-international"
-import { usefulLinks } from "@/content/lists/us-links"
-import { contactsList } from "@/content/about/contacts"
-import { Typography } from "@/ui/typography"
+import { Meteors } from "@/ui/components/meteors"
+import { useScopedI18n } from "@/lib/i18n/i18n"
+import { Typography } from "@/ui/components/typography"
 import Link from "next/link"
+import { usefulLinks } from "@/shared/content/useful-links";
+import { contactsList } from "@/shared/content/contacts";
 
 export const FeedbackSection = () => {
   const titleT = useScopedI18n('title')

@@ -1,12 +1,8 @@
-import { Header } from '@/components/layout/header';
-import { Wrapper } from '@/ui/wrapper';
-import { DotBackgroundDemo } from '@/ui/dot-background';
+import { Wrapper } from '@/ui/components/wrapper';
 import { AboutSection } from '@/components/section/about';
 import dynamic from 'next/dynamic';
-
-// const FeedbackSection = dynamic(() =>
-//   import('@/components/section/feedback').then((mod) => mod.FeedbackSection)
-// )
+import Head from "next/head";
+import { useScopedI18n } from "@/lib/i18n/i18n";
 
 const ProjectsSection = dynamic(() =>
   import('@/components/section/projects').then((mod) => mod.ProjectsSection)
@@ -17,16 +13,29 @@ const SkillsSection = dynamic(() =>
 )
 
 export default function Home() {
+  const metadataT = useScopedI18n("metadata");
+
   return (
-    <Wrapper>
-      <AboutSection />
-      <SkillsSection />
-      {/* Interests Section
-        <Title id="interests" titleBody={titleT('interests.title')} subtitleBody={titleT('interests.subtitle')} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 2xl:grid-cols-3 auto-rows-auto w-full gap-4">
-        </div> */}
-      <ProjectsSection />
-      {/* <FeedbackSection /> */}
-    </Wrapper>
+    <>
+      <Head>
+        <meta
+          name="description"
+          content={metadataT("description")}
+        />
+        <meta
+          property="twitter:description"
+          content={metadataT("description")}
+        />
+        <meta
+          property="og:description"
+          content={metadataT("description")}
+        />
+      </Head>
+      <Wrapper>
+        <AboutSection/>
+        <SkillsSection/>
+        <ProjectsSection />
+      </Wrapper>
+    </>
   )
 }

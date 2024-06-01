@@ -1,5 +1,5 @@
 import { SupportSection } from "@/components/section/support";
-import { Wrapper } from "@/ui/wrapper";
+import { Wrapper } from "@/ui/components/wrapper";
 
 export default function Support() {
   return (

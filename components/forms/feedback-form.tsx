@@ -1,5 +1,5 @@
-import { Input } from "@/ui/input"
-import { Textarea } from "@/ui/textarea"
+import { Input } from "@/ui/components/input"
+import { Textarea } from "@/ui/components/textarea"
 import {
   Form,
   FormControl,
@@ -7,21 +7,21 @@ import {
   FormField,
   FormItem,
   FormMessage,
-} from "@/ui/form"
+} from "@/ui/components/form"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue
-} from "@/ui/select"
-import { inputs } from "@/content/about/contacts";
+} from "@/ui/components/select"
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormSchema } from "@/lib/schemas/feedback";
-import { useScopedI18n } from "@/lib/next-international";
+import { useScopedI18n } from "@/lib/i18n/i18n";
 import { z } from "zod";
-import { ExButton } from "@/ui/ex-button";
+import { ExButton } from "@/ui/components/ex-button";
+import { inputs } from "@/shared/content/contacts";
 
 export const FeedbackForm = () => {
   const servicalT = useScopedI18n('servical')

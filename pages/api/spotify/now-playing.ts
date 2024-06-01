@@ -1,11 +1,6 @@
-import { 
-  AUTH_TOKEN,
-  NOW_PLAYING_ENDPOINT, 
-  REFRESH_TOKEN, 
-  TOKEN_ENDPOINT 
-} from "@/lib/constants";
 import { SpotifySong } from "@/types/spotify";
 import { NextApiRequest, NextApiResponse } from "next";
+import { REFRESH_TOKEN, AUTH_TOKEN, NOW_PLAYING_ENDPOINT, TOKEN_ENDPOINT } from "@/shared/constants/spotify-api";
 
 async function getAccessToken() {
   const response = await fetch(TOKEN_ENDPOINT, {
@@ -21,9 +16,12 @@ async function getAccessToken() {
   });
 
   return response.json();
-};
+}
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   try {
     const { access_token } = await getAccessToken();
 

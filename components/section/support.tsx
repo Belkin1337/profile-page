@@ -1,88 +1,67 @@
 import Link from "next/link"
 import Image from "next/image";
-import { CardBody, CardContainer, CardItem } from "@/ui/3d-card";
-import { Title } from "@/ui/title";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/ui/tooltip";
-import { Typography } from "@/ui/typography";
-import { useToast } from "@/ui/use-toast";
-
-const supportMethods = [
-  {
-    type: "TON",
-    value: "UQA5pdpXT23l2R-3RdbF4cfsQ57_qI5nHwJYlljgWX_15vIb",
-    image: "images/support/ton.jpg",
-    link: false
-  },
-  {
-    type: "YooMoney",
-    value: "https://yoomoney.ru/fundraise/118ARQKU2N4.240304",
-    image: "images/support/yoomoney.png",
-    link: true
-  },
-  // {
-  //   type: "ETH",
-  //   value: "",
-  //   image: "images/support/eth.png",
-  //   link: false
-  // }
-]
+import { CardBody, CardContainer, CardItem } from "@/ui/components/3d-card";
+import { Title } from "@/ui/components/title";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/ui/components/tooltip";
+import { Typography } from "@/ui/components/typography";
+import { useToast } from "@/lib/hooks/use-toast";
+import { supportMethods } from "@/shared/constants/support-methods";
+import AnimatedGradientText from "@/ui/components/animated-grad-text";
+import { cn } from "@/lib/utils/styles/cn";
 
 export const SupportSection = () => {
-  const { toast } = useToast();
-  
-  const handleCopyboard = (value: string) => {
-    navigator.clipboard.writeText(value);
+	const { toast } = useToast();
 
-    toast({
-      title: "Адрес скопирован"
-    })
-  }
-  
-  return (
-    <div className="flex flex-col min-h-screen pt-24 w-full">
-      <Title titleBody="Ниже способы, как можно помочь материально" />
-      <div className="flex flex-wrap gap-x-6">
-        {supportMethods.map((item, idx) => (
-          <CardContainer key={idx}>
-            <CardBody className={`${item.type === "TON" && "border border-deluge-600"} bg-neutral-600/40 backdrop-blur-md backdrop-filter rounded-xl h-[86%]`}>
-              <Image
-                src={`/${item.image}`}
-                loading="lazy"
-                width={200}
-                height={200}
-                className="rounded-xl object-cover w-full h-[200px]"
-                alt={item.type}
-              />
-              <CardItem className="p-4">
-                {item.type}
-              </CardItem>
-              <CardItem className="p-4 text-deluge-300 font-bold hover:brightness-150">
-                {item.link ? (
-                  <Link href={item.value} target="_blank">
-                    Помочь
-                  </Link>
-                ) : (
-                  <Tooltip delayDuration={0}>
-                    <TooltipTrigger>
-                      <Typography
-                        onClick={() => handleCopyboard(item.value)}
-                        className="text-left"
-                      >
-                        {item.value}
-                      </Typography>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <Typography>
-                        Кликни, чтобы скопировать
-                      </Typography>
-                    </TooltipContent>
-                  </Tooltip>
-                )}
-              </CardItem>
-            </CardBody>
-          </CardContainer>
-        ))}
-      </div>
-    </div>
-  )
+	const handleCopyboard = async (value: string) => {
+		await navigator.clipboard.writeText(value);
+
+		toast({ title: "Адрес скопирован" })
+	}
+
+	return (
+		<div className="flex flex-col gap-y-12 min-h-screen pt-24 w-full">
+			<div className="flex flex-col gap-y-4 w-full">
+				<Title titleBody="Ниже способы, как можно помочь материально"/>
+				<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+					{supportMethods.map((item,
+						idx) => (
+						<div key={idx} className="flex flex-col p-4 rounded-xl bg-neutral-800 w-full h-full">
+							<Image
+								src={`/${item.image}`}
+								loading="lazy"
+								width={800}
+								height={800}
+								className="rounded-xl object-cover w-full h-[200px]"
+								alt={item.type}
+							/>
+							<div className="pt-4 text-white font-bold cursor-pointer">
+								{item.link ? (
+									<Link href={item.value} target="_blank">
+										Помочь
+									</Link>
+								) : (
+									<p onClick={() => handleCopyboard(item.value)}>
+										Кликни, чтобы скопировать
+									</p>
+								)}
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+			<div className="flex items-center flex-col gap-y-4 w-full">
+				<Title titleBody="А также, если вы нуждаетесь в хорошем, продающий ваш товар, сайте, обращаетсь в мою студию"/>
+				<Link href="https://pureawake-studio.su" target="_blank">
+					<AnimatedGradientText>
+						<span
+							className={cn(
+								`inline animate-gradient text-lg md:text-xl xl:text-3xl bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,)}
+						>
+							кликни
+						</span>
+					</AnimatedGradientText>
+				</Link>
+			</div>
+		</div>
+	)
 }

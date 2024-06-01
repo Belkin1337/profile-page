@@ -1,7 +1,10 @@
-import { projectsData } from "@/content/projects";
-import { useScopedI18n } from "@/lib/next-international";
-import { InfiniteMovingCards } from "@/ui/infinite-moving-cards"
-import { Title } from "@/ui/title"
+import { useScopedI18n } from "@/lib/i18n/i18n";
+import { Title } from "@/ui/components/title"
+import { projectsData } from "@/shared/content/projects";
+import dynamic from "next/dynamic";
+
+const InfiniteMovingCards = dynamic(() => import("@/ui/components/infinite-moving-cards")
+  .then(m => m.InfiniteMovingCards))
 
 export const ProjectsSection = () => {
   const titleT = useScopedI18n('title')
