@@ -118,6 +118,17 @@ export default {
       }
     }
   },
+  "support": {
+    "donate": "Below are ways you can help financiallyо",
+    "help": "Help",
+    "studio": "And also, if you need a good website selling your product, contact my studio"
+  },
+  'header': {
+    'widget': 'Widget',
+    "support": "Donate",
+    "work": "Feedback/Orders",
+    "sources": "Sources"
+  },
   'interests': {
     'network': "Network",
     'channelName': "Channel",

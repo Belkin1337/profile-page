@@ -38,7 +38,7 @@ const HeaderLink = ({
 }
 
 export const Header = () => {
-	const servicalT = useScopedI18n('servical')
+	const headerT = useScopedI18n("header")
 
 	const { isOpen, openSheet } = useWatchSheet({
 		name: "widget"
@@ -56,7 +56,7 @@ export const Header = () => {
 					</Link>
 					<div className="flex gap-x-6 items-center">
 						<FeaturesSlot
-							content="Обратная связь/заказы"
+							content={headerT("work")}
 							trigger={(
 								<HeaderLink propHref="https://pureawake-studio.su">
 									<LuSend size={20} className="dark:text-white text-neutral-950"/>
@@ -64,7 +64,7 @@ export const Header = () => {
 							)}
 						/>
 						<FeaturesSlot
-							content="Задонатить"
+							content={headerT("support")}
 							trigger={(
 								<HeaderLink propHref="/support">
 									<MdAttachMoney size={20} className="dark:text-white text-neutral-950"/>
@@ -72,7 +72,7 @@ export const Header = () => {
 							)}
 						/>
 						<FeaturesSlot
-							content="Исходники"
+							content={headerT("sources")}
 							trigger={(
 								<HeaderLink propHref={GITHUB_PROFILE_LINK}>
 									<Github size={20} className="dark:text-white text-neutral-950" />
@@ -82,7 +82,7 @@ export const Header = () => {
 						<SheetTrigger>
 							<FeaturesSlot
 								asChild
-								content={servicalT('widget')}
+								content={headerT('widget')}
 								trigger={(
 									<div className="hover:bg-neutral-400 dark:hover:bg-neutral-800 rounded-xl p-2 hover:duration-200 duration-200">
 										<Braces size={20} className="dark:text-white text-neutral-950"/>
